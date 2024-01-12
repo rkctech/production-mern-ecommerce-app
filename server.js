@@ -14,8 +14,8 @@ import { fileURLToPath } from "url";
 dotenv.config();
 
 // es mpduel fix
-const __filename =fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename =fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 //databse config
 connectDB();
@@ -35,7 +35,7 @@ app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
 //rest api
- app.use("*", (req, res) => {
+ app.get("*", (req, res) => {
    res.sendFile(path.join(__dirname,"./client/build/index.html"));
   });
 
